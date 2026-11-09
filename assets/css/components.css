@@ -1,128 +1,142 @@
 /*
-Header
-Footer
-Main
-Sectioner
-Nav-lista
-Hero
-Media queries
+Kort
+Knappar
+Formulär
 */
 
-header {
-    background-color: var(--color-background-header);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-small) var(--space-normal);
-}
-footer {
-    background-color: var(--color-background-footer);
+/* KORT */
+article {
+    background-color: var(--color-background-card);
+    border: 1px solid var(--color-border-card);
+    border-radius: var(--radius-card);
+    padding: var(--space-normal);
+    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    /* Steg 5 Experimentera
+    JUSTIFY CONTENT
+    justify-content: center;
+    justify-content: flex-end;
+    justify-content: space-around;
+    Det blir ingen skillnad. Jag måste göra föräldren .meny-lista till en flexbehållare för att justify-content ska kunna påverka article-elementet.)
+
+    ALIGN-ITEMS
+    align-items: center (det gör att texten i article blir centrerad)
+    align-items: flex-end (det gör att texten i article blir högerjusterad)
+    */
+}
+/* Boxmodellen för en article, från vänster till höger (horisontellt):
+
+margin 0 | border 1 | padding 16 | content 1034 | padding 16 | border 1 | margin 0
+
+*/
+article img {
+    border-radius: var(--radius-image);
+}
+
+.meny-lista {
+    margin-top: var(--space-normal);
+    /* Gör meny-listan till en flexbehållare så att article .meny-item ligger på en rad på större skärmar.
+    Detta gör att nu kan man även se att priset justeras mot artikelns botten. */
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem; */
+
+    /* Skapa en grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: var(--space-normal);
 }
-@media (min-width: 600px) {
-    footer {
-        align-items: flex-end;
-    }
+
+.meny-item {
+    /* flex: 1 1 240px; */
+    transition:
+        scale 300ms ease-in-out,
+        box-shadow 300ms ease-in-out,
+        border-color 300ms ease-in-out;
 }
-header,
-footer {
+.meny-item:hover {
+    scale: 1.03;
+    box-shadow: var(--shadow-card-hover);
+}
+
+/* Motivering av valet mellan Flexbox och Grid:
+    Eftersom rubriken ska täcka båda kolumnerna,
+    texten ska ligga i den vänstra kolumen,
+    och bilden i den högra kolumnen,
+    passar det bra att använda grid eftersom det går att styra
+    placeringen i två dimensioner (horisontellt och vertikalt).
+*/
+#om-oss img {
+    border-radius: var(--radius-image);
+}
+
+/***** KNAPPAR *****/
+.knapp,
+input[type='submit'] {
+    display: inline-block;
+    color: var(--color-text-button); /* Kontrast mot background: 9.56 AAA */
+    background-color: var(--color-background-button);
+    padding: 12px 20px;
+    margin-top: var(--space-normal);
+    border-radius: var(--radius-button);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.knapp:hover,
+input[type='submit']:hover {
     color: var(
-        --color-text-header
-    ); /* Kontast mot header background 10.09 AAA. Kontast mot footer background 16.42 AAA */
-    padding: var(--space-normal) var(--space-medium);
+        --color-text-button
+    ); /* Kontrast mot hover background: 12.11 AAA */
+    background-color: var(--color-background-button-hover);
 }
-
-main {
-    max-width: 1100px;
-    padding: var(--space-medium);
-    /* Sätter top/bottom margin till 0 och vänster/höger margin till auto.
-    auto gör att elementet får sitt värde automatiskt (lika mycket till vänster som till höger) baserat på förälderns bredd.
-    Effekten blir att elementet centreras horisontellt. */
-    margin: 0 auto;
+.knapp:active,
+input[type='submit']:active {
+    transform: scale(0.97);
 }
+/* Jag lägger inte in en :focus-visible på knapp-klassen eftersom den redan får den stilen från a-elementet */
 
-section:not(:first-child) {
+/***** FORMULÄR *****/
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='date'],
+input[type='number'],
+select,
+textarea {
+    width: 100%;
+    max-width: 28rem;
+    padding: 10px 12px;
+    border: 2px solid var(--color-border-form);
+    border-radius: var(--radius-form);
+    font: inherit;
+    background-color: var(--color-background-input);
+}
+label {
+    font-weight: 700;
+    display: block;
+    margin-top: var(--space-normal);
+}
+fieldset {
     margin-top: var(--space-large);
+    padding: var(--space-medium);
+    border: 2px solid var(--color-border-form);
+    border-radius: var(--radius-form);
+    max-width: 28rem;
+}
+fieldset legend {
+    font-weight: 700;
+    padding: 0 var(--space-normal);
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.checkbox-group {
     display: flex;
-    gap: var(--space-medium);
+    align-items: center;
+    gap: var(--space-small);
+    margin-bottom: var(--space-small);
 }
-
-#hero {
-    background-color: var(--color-surface);
-    padding: var(--space-normal);
-    border-radius: var(--radius-card);
-    font-family: var(--font-body);
-}
-
-@media (min-width: 600px) {
-    /* Större rubrik i Hero */
-    /*
-    #hero h2 {
-        font-size: 2.125rem;
-    }
-    */
-
-    /* Mer padding i hero */
-    #hero {
-        padding: var(--space-large);
-    }
-
-    /* Sista meny-item ska sträcka sig över två kolumner */
-    /* .meny-item:last-child {
-        grid-column: span 2;
-    } */
-}
-
-@media (min-width: 900px) {
-    /* Om oss i två kolumner */
-    #om-oss {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-normal);
-    }
-    #om-oss h2 {
-        grid-column: 1 / -1;
-    }
-    #om-oss p {
-        grid-column: 1;
-    }
-    #om-oss img {
-        grid-column: 2;
-        grid-row: 2 / span 2;
-    }
-    /* Gruppera texten i en container så att textstyckena hamnar i samma rad */
-    #om-oss .om-oss-text {
-        grid-column: 1;
-        grid-row: 2;
-    }
-    /* Ta bort padding-top för att linjera texten bildens överkant */
-    #om-oss p:first-of-type,
-    #om-oss h2 {
-        margin-top: 0;
-    }
-
-    /* Återställ sista meny-item */
-    /* .meny-item:last-child {
-        grid-column: span 1;
-    } */
-
-    /* Mer padding i hero */
-    #hero {
-        padding: var(--space-xlarge);
-    }
-
-    /* Jag gör inte sidhuvudet bredare, men jag lägger till mer padding ovanför och nedanför
-    så att sidhuvudet blir lite högre. */
-    header {
-        padding: var(--space-large) var(--space-medium);
-    }
+.checkbox-group label {
+    margin-top: 0;
 }
