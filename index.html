@@ -1,71 +1,107 @@
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kafé Kardemumma – fika i hjärtat av Stockholm</title>
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-</head>
-<body>
-  <header>
-    <h1>Kafé Kardemumma</h1>
-    <nav aria-label="Huvudmeny">
-      <ul>
-        <li><a href="#meny">Meny</a></li>
-        <li><a href="#om-oss">Om oss</a></li>
-        <li><a href="kontakt.html">Boka bord</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="hero">
-      <h2>Nybakat varje morgon</h2>
-      <p>Hos oss bakas allt från grunden. Kom in för en bulle, en kopp kaffe och en stund för dig själv.</p>
-      <a href="#meny" class="knapp">Se menyn</a>
-    </section>
-
-    <section id="meny">
-      <h2>Meny</h2>
-      <div class="meny-lista">
-      <article>
-        <img src="images/bulle.svg" alt="Illustration av en kardemummabulle">
-        <h3>Kardemummabulle</h3>
-        <p>Bakad på färsk kardemumma och pärlsocker.</p>
-        <p class="pris">35 kr</p>
-      </article>
-      <article>
-        <img src="images/kaffe.svg" alt="Illustration av en kaffekopp">
-        <h3>Bryggkaffe</h3>
-        <p>Lokalrostat, med fri påtår.</p>
-        <p class="pris">32 kr</p>
-      </article>
-      <article>
-        <img src="images/smorgas.svg" alt="Illustration av en smörgås">
-        <h3>Ostmacka</h3>
-        <p>Surdegsbröd, lagrad ost och krispig sallad.</p>
-        <p class="pris">59 kr</p>
-      </article>
-      </div>
-    </section>
-
-    <section id="om-oss">
-      <h2>Om oss</h2>
-      <img src="images/kafe.svg" alt="Illustration av Kafé Kardemummas fasad">
-      <p>Kafé Kardemumma öppnade 2019 och drivs av två vänner som ville ha ett ställe där man vågar sitta kvar. Vi handlar lokalt och bakar varje dag.</p>
-      <p>Öppet vardagar 07–18 och helger 09–16.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2026 Kafé Kardemumma</p>
-    <address>
-      Fiktivgatan 1, 111 11 Stockholm<br>
-      <a href="mailto:hej@kardemumma.example">hej@kardemumma.example</a>
-    </address>
-  </footer>
-</body>
+<!doctype html>
+<html lang="sv" data-theme="system">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ändrade sidans title – Kafé Kardemumma</title>
+        <link rel="stylesheet" href="assets/css/variables.css" />
+        <link rel="stylesheet" href="assets/css/base.css" />
+        <link rel="stylesheet" href="assets/css/layout.css" />
+        <link rel="stylesheet" href="assets/css/components.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Kafé Kardemumma</h1>
+            <nav aria-label="Huvudmeny">
+                <ul>
+                    <li>
+                        <a href="index.html" aria-current="page">Startsida</a>
+                    </li>
+                    <li><a href="#meny">Meny</a></li>
+                    <li><a href="#om-oss">Om oss</a></li>
+                    <li><a href="kontakt.html">Boka bord</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="hero">
+                <h2>Nybakat (nästan) varje morgon</h2>
+                <p>
+                    Hos oss bakas allt från grunden. Kom in för en bulle, en
+                    kopp kaffe och en stund för dig själv.
+                </p>
+                <a href="#meny" class="knapp">Se menyn</a>
+            </section>
+            <section id="meny">
+                <h2>Vår meny</h2>
+                <div class="meny-lista">
+                    <article class="meny-item">
+                        <img
+                            src="assets/images/bulle.svg"
+                            alt="Illustration av en kardemummabulle"
+                        />
+                        <h3>Kardemummabulle</h3>
+                        <p>Bakad på färsk kardemumma och pärlsocker.</p>
+                        <p class="pris">35 kr</p>
+                    </article>
+                    <article class="meny-item">
+                        <img
+                            src="assets/images/kaffe.svg"
+                            alt="Illustration av en kopp bryggkaffe"
+                        />
+                        <h3>Bryggkaffe</h3>
+                        <p>Lokalrostat, med fri påtår.</p>
+                        <p class="pris">32 kr</p>
+                    </article>
+                    <article class="meny-item">
+                        <img
+                            src="assets/images/smorgas.svg"
+                            alt="Illustration av en smörgås"
+                        />
+                        <h3>Ostmacka</h3>
+                        <p>Surdegsbröd, lagrad ost och krispig sallad.</p>
+                        <p class="pris">59 kr</p>
+                    </article>
+                    <article class="meny-item">
+                        <img
+                            src="assets/images/te.svg"
+                            alt="En rykande kopp te"
+                        />
+                        <h3>Te</h3>
+                        <p>
+                            Svart te, grönt te, vitt te, gult te, och Matcha –
+                            vi har de flesta sorter som en riktig teälskare vill
+                            ha.
+                        </p>
+                        <p class="pris">28 kr</p>
+                    </article>
+                </div>
+            </section>
+            <section id="om-oss">
+                <img src="assets/images/kafe.svg" alt="Kaféet exteriör" />
+                <h2>Om oss</h2>
+                <div class="om-oss-text">
+                    <p>
+                        Kafé Kardemumma öppnade 2019 och drivs av två vänner som
+                        ville ha ett ställe där man vågar sitta kvar. Vi handlar
+                        lokalt och bakar varje dag.
+                    </p>
+                    <p>Öppet vardagar 07–19 och helger 10–17.</p>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <address>
+                <p class="company-name">Kafé Kardemumma</p>
+                <p>Fiktivgatan 1</p>
+                <p>111 11 Stockholm</p>
+                <p>
+                    <a href="mailto:hej@kardemumma.example"
+                        >hej@kardemumma.example</a
+                    >
+                </p>
+            </address>
+            <p class="copyright">&copy; 2026 Kafé Kardemumma</p>
+        </footer>
+    </body>
 </html>

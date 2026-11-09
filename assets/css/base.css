@@ -1,0 +1,156 @@
+/*
+GRUNDINSTÄLLNINGAR
+Border box
+Nollställer margin och paddings
+Body
+Typografi (rubriker, paragrapher, egna klasser
+Länkar
+Responsiva bilder
+*/
+
+/* Padding och border inkluderas i elementets totala storlek */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+/* Nollställer margin och padding på alla element */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(
+        --color-text
+    ); /* Kontrast mot body background: 15.32 AAA. Kontrast mot article background: 15.91 AAA. Kontrast mot hero background: 12.65 AAA */
+    font-family: var(--font-body);
+    /* rem är bättre än px eftersom rem anger storleken i förhållande till rot-elementets
+    storlek och är inte ett fast värde som px är. Det gör att teckenstorleken kan skalas upp
+    om en användare ändrar i sin webbläsare att teckenstorleken ska öka/bli större. Det ger en
+    bättre tillgänglighet. */
+    line-height: 1.6;
+}
+
+/* TYPOGRAFI: rubriker, paragrapher */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+h1,
+h2 {
+    font-size: 1.75rem;
+}
+h3 {
+    font-size: 1.25rem;
+}
+h2,
+h3 {
+    margin-top: 1rem;
+}
+main h1,
+main h2,
+main h3 {
+    color: var(
+        --color-heading
+    ); /* Kontrast mot article background: 14.47 AAA */
+}
+
+p {
+    margin-top: var(--space-normal);
+}
+
+#hero h2 {
+    margin-top: 0;
+}
+
+#hero p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+/* Använda clamp för att ge rubriken i hero en responsiv storlek */
+#hero h2 {
+    font-size: clamp(1.75rem, 1.25vw + 1.5rem, 2.5rem);
+}
+
+footer address p {
+    margin-top: 0;
+    font-style: normal;
+}
+
+.pris {
+    color: var(
+        --color-text-price
+    ); /* Kontrast mot article background: 9.56 AAA */
+    margin-top: auto;
+    padding-top: var(--space-normal);
+}
+.hjalp-text {
+    color: var(
+        --color-text-caption
+    ); /* Kontrast mot body background: 5.53 AA */
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+.samtycke {
+    margin-top: var(--space-normal);
+}
+.company-name {
+    font-weight: 700;
+}
+.copyright {
+    margin-top: 0;
+    align-self: flex-start;
+}
+
+/* LÄNKAR */
+a {
+    color: var(
+        --color-link
+    ); /* Kontrast mot article background: 9.56 AAA.  Kontrast mot body background: 9.20 AAA. Kontrast mot hero background: 7.60 AAA */
+    text-underline-offset: 3px;
+}
+a:hover {
+    color: var(
+        --color-link-hover
+    ); /* Kontrast mot article background: 13.78 AAA.  Kontrast mot body background: 13.27 AAA. Kontrast mot hero background: 10.96 AAA */
+    text-decoration-thickness: 2px;
+}
+a:focus-visible {
+    outline: 3px solid var(--color-outline);
+    outline-offset: 2px;
+}
+
+nav a {
+    color: var(--color-nav-link); /* Kontast mot header background 10.09 AAA. */
+    text-decoration: none;
+}
+nav a:hover {
+    color: var(
+        --color-nav-link-hover
+    ); /* Kontast mot header background 10.09 AAA. */
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+footer a {
+    color: var(
+        --color-text-footer
+    ); /* Kontrast mot footer background: 16.42 AAA */
+}
+footer a:hover {
+    color: var(
+        --color-text-footer
+    ); /* Kontrast mot footer background: 16.42 AAA */
+}
+
+/* Gör så att bilder inte går utanför sin container
+och att bilder skalar propotionerligt */
+img {
+    max-width: 100%;
+    height: auto;
+}
